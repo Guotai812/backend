@@ -43,5 +43,13 @@ app.post('/product', (req, res) => {
   });
 });
 
-// Export for Vercel serverless function
-export default app;
+// Fallback for 404
+app.use((req, res) => {
+  res.status(404).json({ message: 'Not Found' });
+});
+
+// Start the server
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}`);
+});
