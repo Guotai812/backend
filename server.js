@@ -48,4 +48,6 @@ app.post('/product', (req, res, next) => {
     .json({ message: 'Created new product.', product: createdProduct });
 });
 
-// app.listen(5001); // start Node + Express server on port 5000
+app.listen(process.env.PORT || 5001, () => {
+  console.log(`Server is running on port ${process.env.PORT || 5001}`);
+}); // start Node + Express server on port 5000
