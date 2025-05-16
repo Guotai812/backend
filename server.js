@@ -10,7 +10,7 @@ app.use(bodyParser.json());
 
 // CORS Headers => Required for cross-origin/ cross-server communication
 app.use((req, res, next) => {
-  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Origin', 'https://frontend-eight-self-88.vercel.app/');
   res.setHeader(
     'Access-Control-Allow-Headers',
     'Origin, X-Requested-With, Content-Type, Accept, Authorization'
