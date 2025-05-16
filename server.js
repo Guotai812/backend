@@ -4,7 +4,7 @@ import cors from 'cors';
 import { v4 as uuidv4 } from 'uuid';
 
 const app = express();
-const DUMMY_PRODUCTS = [{id:1}];
+const DUMMY_PRODUCTS = [];
 
 // CORS Configuration
 app.use(cors({
