@@ -6,8 +6,6 @@ const app = express();
 
 const DUMMY_PRODUCTS = []; // not a database, just some in-memory storage for now
 
-app.use(bodyParser.json());
-
 // CORS Headers => Required for cross-origin/ cross-server communication
 app.use((req, res, next) => {
   res.setHeader('Access-Control-Allow-Origin', 'https://frontend-eight-self-88.vercel.app');
@@ -28,6 +26,8 @@ app.use((req, res, next) => {
 
   next();
 });
+
+app.use(bodyParser.json());
 
 app.get('/products', (req, res, next) => {
   res.status(200).json({ products: DUMMY_PRODUCTS });
