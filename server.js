@@ -8,7 +8,7 @@ const DUMMY_PRODUCTS = []; // not a database, just some in-memory storage for no
 
 // CORS Configuration
 app.use(cors({
-  origin: 'https://frontend-eight-self-88.vercel.app/:1', // Allow your frontend
+  origin: 'https://frontend-eight-self-88.vercel.app', // Allow your frontend
   credentials: true, // Allow cookies and credentials
   methods: 'GET, POST, PATCH, DELETE, OPTIONS', // Allowed methods
   allowedHeaders: 'Origin, X-Requested-With, Content-Type, Accept, Authorization' // Allowed headers
