@@ -6,26 +6,14 @@ const app = express();
 
 const DUMMY_PRODUCTS = []; // not a database, just some in-memory storage for now
 
-// CORS Headers => Required for cross-origin/ cross-server communication
-app.use((req, res, next) => {
-  res.setHeader('Access-Control-Allow-Origin', 'https://frontend-eight-self-88.vercel.app');
-  res.setHeader(
-    'Access-Control-Allow-Headers',
-    'Origin, X-Requested-With, Content-Type, Accept, Authorization'
-  );
-  res.setHeader(
-    'Access-Control-Allow-Methods',
-    'GET, POST, PATCH, DELETE, OPTIONS'
-  );
-  res.setHeader('Access-Control-Allow-Credentials', 'true');
+// CORS Configuration
+app.use(cors({
+  origin: 'https://frontend-eight-self-88.vercel.app', // Allow your frontend
+  credentials: true, // Allow cookies and credentials
+  methods: 'GET, POST, PATCH, DELETE, OPTIONS', // Allowed methods
+  allowedHeaders: 'Origin, X-Requested-With, Content-Type, Accept, Authorization' // Allowed headers
+}));
 
-  // Handle OPTIONS preflight requests
-  if (req.method === 'OPTIONS') {
-    return res.sendStatus(204);
-  }
-
-  next();
-});
 
 app.use(bodyParser.json());
 
