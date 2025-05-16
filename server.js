@@ -9,7 +9,7 @@ const DUMMY_PRODUCTS = [];
 // CORS Configuration
 app.use(cors({
   origin: 'https://frontend-eight-self-88.vercel.app',
-  credentials: true,
+  credentials: false,
   methods: ['GET', 'POST', 'PATCH', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Origin', 'X-Requested-With', 'Content-Type', 'Accept', 'Authorization']
 }));
