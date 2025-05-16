@@ -1,7 +1,6 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-const uuid = require('uuid/v4');
-
+const { v4: uuidv4 } = require('uuid');
 const app = express();
 
 const DUMMY_PRODUCTS = []; // not a database, just some in-memory storage for now
@@ -36,7 +35,7 @@ app.post('/product', (req, res, next) => {
   }
 
   const createdProduct = {
-    id: uuid(),
+    id: uuidv4(),
     title,
     price
   };
