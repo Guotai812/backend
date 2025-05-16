@@ -1,27 +1,26 @@
 const express = require('express');
 const bodyParser = require('body-parser');
+const cors = require('cors');
 const { v4: uuidv4 } = require('uuid');
 
 const app = express();
 
-const DUMMY_PRODUCTS = []; // not a database, just some in-memory storage for now
+const DUMMY_PRODUCTS = [];
 
-// CORS Configuration
 app.use(cors({
-  origin: 'https://frontend-eight-self-88.vercel.app', // Allow your frontend
-  credentials: true, // Allow cookies and credentials
-  methods: 'GET, POST, PATCH, DELETE, OPTIONS', // Allowed methods
-  allowedHeaders: 'Origin, X-Requested-With, Content-Type, Accept, Authorization' // Allowed headers
+  origin: 'https://frontend-eight-self-88.vercel.app', // Replace with your frontend URL
+  credentials: true,
+  methods: ['GET', 'POST', 'PATCH', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Origin', 'X-Requested-With', 'Content-Type', 'Accept', 'Authorization']
 }));
-
 
 app.use(bodyParser.json());
 
-app.get('/products', (req, res, next) => {
+app.get('/products', (req, res) => {
   res.status(200).json({ products: DUMMY_PRODUCTS });
 });
 
-app.post('/product', (req, res, next) => {
+app.post('/product', (req, res) => {
   const { title, price } = req.body;
 
   if (!title || title.trim().length === 0 || !price || price <= 0) {
@@ -45,4 +44,4 @@ app.post('/product', (req, res, next) => {
 
 app.listen(process.env.PORT || 5001, () => {
   console.log(`Server is running on port ${process.env.PORT || 5001}`);
-}); // start Node + Express server on port 5000
+});
