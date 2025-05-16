@@ -16,6 +16,10 @@ app.use(cors({
 app.use(bodyParser.json());
 
 // Routes
+app.get('/', (req, res) => {
+  res.send('Backend is running');
+});
+
 app.get('/products', (req, res) => {
   res.status(200).json({ products: DUMMY_PRODUCTS });
 });
